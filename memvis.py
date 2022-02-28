@@ -4,7 +4,7 @@ from os import system
 
 
 def visualize(res: list, db: list):
-    with open("ram.txt", "r") as ram:
+    with open(sys.argv[2], "r") as ram:
         ram = ram.read()
         orig = ram
 
@@ -51,8 +51,9 @@ def visualize(res: list, db: list):
 
 
 
-if len(sys.argv) < 2:
-    print("Too little args!\n")
+if len(sys.argv) < 3:
+    print("Usage: python3 memvis.py <location of asm file> <location of ram.txt>")
+    exit(1)
 
 
 with open(sys.argv[1], "r") as src:
